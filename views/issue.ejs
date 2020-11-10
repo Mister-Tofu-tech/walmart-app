@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('header') -%>
+    <body>
+
+        <div class="container">
+            <h3 class="blue-grey-text text-darken-2 "><%= issue.title  %></h3>
+            <div style="display:flex; flex-direction:row;">
+                <img class="user-img" data-caption="A picture of a way with a group of trees in a park" width="75" height="75"
+                    src="<%= issue.user.avatar_url %>">
+                <div style="display:flex; flex-direction:column; justify-content: center;">
+                    <a href="<%= issue.user.html_url %>"><%= issue.user.login %></a>
+                    <p class="grey-text text-darken-1">Created At <%= issue.created_at %></p>
+                 </div>
+            </div>
+            <p class="text-body flow-text"><%= issue.body  %></p>
+        </div>
+    
+    </body>
+    <%- include('header') -%>
+</html>

@@ -1,0 +1,32 @@
+.container {
+  margin-top: 2.5%;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.disable {
+  pointer-events: none;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.text-body {
+  margin-top: 2.5%;
+}
+
+.user-img {
+    border-radius: 50%;
+}
+
+.user-link {
+    color:black;
+}
+
+.user-link:hover {
+    text-decoration: underline;
+}

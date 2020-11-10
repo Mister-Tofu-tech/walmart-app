@@ -18,13 +18,17 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
     var page_num = json_data.length / 10;
     console.log(page_num);
-    res.render("index", { data: json_data, num: 1});
-})
+    res.render("index", { data: json_data, num: 1 });
+});
 
 app.get("/:num", (req, res) => {
     res.render("index", { data: json_data, num: req.params.num });
-})
+});
+    
+app.get("/issue/:num", (req, res) => {
+    res.render("issue", { issue: json_data[req.params.num] });
+});
 
-app.listen(5000, () => {
-    console.log("App listening at 5000!!");
+app.listen(3000, () => {
+    console.log("App listening at 3000!!");
 });
