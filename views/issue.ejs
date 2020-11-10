@@ -4,18 +4,37 @@
     <body>
 
         <div class="container">
-            <h3 class="blue-grey-text text-darken-2 "><%= issue.title  %></h3>
-            <div style="display:flex; flex-direction:row;">
-                <img class="user-img" data-caption="A picture of a way with a group of trees in a park" width="75" height="75"
-                    src="<%= issue.user.avatar_url %>">
-                <div style="display:flex; flex-direction:column; justify-content: center;">
-                    <a href="<%= issue.user.html_url %>"><%= issue.user.login %></a>
-                    <p class="grey-text text-darken-1">Created At <%= issue.created_at %></p>
-                 </div>
+            <h3 class="issue-title blue-grey-text text-darken-2"><%= issue.title  %></h3>
+            <div class="user-wrapper">
+                <a href="<%= issue.user.html_url %>"><img class="user-img" data-caption="GitHub user <%= issue.user.login %>" width="65" height="66"
+                    src="<%= issue.user.avatar_url %>"></a>
+                <div style="display:flex; flex-direction:column; justify-content: center; margin-left: 1%;">
+                    <a class="user-link valign-wrapper" href="<%= issue.user.html_url %>"><%= issue.user.login %> </a>
+                    <p class="grey-text text-darken-1" style="margin: 0;">
+                        issue #<%= issue.number %>
+                    </p>
+                    <p class="grey-text text-darken-1" style="margin: 0;">
+                        Created At <%= issue.created_at %>
+                    </p>
+                    
+                </div>
+                <% if (issue.state == "open") { %>
+                    <span class="issue-state open valign-wrapper"><%= issue.state %></span>
+                <% } else if(issue.state == "closed" ) { %>
+                    <span class="issue-state closed valign-wrapper"><%= issue.state %></span>
+                <% } else { %>
+                    <span class="issue-state valign-wrapper"><%= issue.state %></span>
+                <% } %>
+
             </div>
-            <p class="text-body flow-text"><%= issue.body  %></p>
+            <p class="text-body"><%= issue.body  %></p>
+            <div class="foot-wrapper">
+                <a class="issue_link valign-wrapper" target="_blank" href="<%= issue.html_url %>">Original Issue<i
+                                    class="material-icons">open_in_new</i></a>
+                <a class="issue_link valign-wrapper" href="/<%= 1 + Math.floor(num / 10)%>">Back to issues</a>
+            </div>
         </div>
     
     </body>
-    <%- include('header') -%>
+    <%- include('script') -%>
 </html>

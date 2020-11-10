@@ -23,14 +23,23 @@
     
         <div class="pagination-wrapper">
             <ul class="pagination">
-                <li class="<%= num == 1  ? 'disabled' : 'waves-effect' %>"><a class="<%= num == 1 ? 'disable' : '' %>" href="<%= parseInt(num) - 1 %>"><i class="material-icons">chevron_left</i></a></li>
-                <li class="<%= num == 1 ? 'active' : 'waves-effect' %>"><a href="1">1</a></li>
-                <li class="<%= num == 2 ? 'active' : 'waves-effect' %>"><a href="2">2</a></li>
-                <li class="<%= num == 3 ? 'active' : 'waves-effect' %>"><a href="3">3</a></li>
-                <li class="<%= num == 3 ? 'disabled' : 'waves-effect' %>"><a class="<%= num == 3 ? 'disable' : '' %>" href="<%= parseInt(num) + 1 %>"><i class="material-icons">chevron_right</i></a></li>
+                <li class="<%= num <= 1  ? 'disabled' : 'waves-effect' %>">
+                    <a class="<%= num <= 1 ? 'disable' : '' %>"
+                        href="<%= parseInt(num) - 1 %>">
+                        <i class="material-icons">chevron_left</i>
+                    </a>
+                </li>
+                <% for (var j = 1; j <= Math.ceil(data.length / 10); j++) { %>
+                    <li class="<%= j == num ? 'active' : 'waves-effect' %>"><a href="<%= j %>"><%= j %></a></li>
+                <% } %>
+                <li class="<%= num >= Math.ceil(data.length / 10) ? 'disabled' : 'waves-effect' %>">
+                    <a class="<%= num >= Math.ceil(data.length / 10) ? 'disable' : '' %>" href="<%= parseInt(num) + 1 %>">
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </body>
-<%- include('header') -%>
+<%- include('script') -%>
 </html>

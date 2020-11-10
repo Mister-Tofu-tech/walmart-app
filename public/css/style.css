@@ -2,12 +2,38 @@
   margin-top: 2.5%;
 }
 
-.card:hover {
-  cursor: pointer;
-}
-
 .disable {
   pointer-events: none;
+}
+
+.issue-title {
+  font-weight: 600;
+}
+
+.issue_link {
+  font-size: 18px;
+}
+
+.issue-state {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.open {
+  color: white;
+  background-color: #28a745;
+  padding: 10px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.closed {
+  color: white;
+  background-color: #d73a49;
+  padding: 10px;
+  height: 30px;
+  border-radius: 20px;
 }
 
 .pagination-wrapper {
@@ -16,17 +42,24 @@
 }
 
 .text-body {
+  font-size: large;
   margin-top: 2.5%;
+  margin-bottom: 5%;
+}
+
+.user-wrapper {
+  display: flex;
 }
 
 .user-img {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-.user-link {
-    color:black;
+a:hover {
+  text-decoration: underline;
 }
 
-.user-link:hover {
-    text-decoration: underline;
+.foot-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
