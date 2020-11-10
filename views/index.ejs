@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header') -%>
+<body>
+    <table>
+        <tbody>
+        <% for(var i = (num - 1) * 10; i < num * 10 && i < data.length; i++) { %>
+            <tr>
+                <td><%= data[i].id %></td>
+                <td><%= data[i].title %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <ul class="pagination">
+        <li class="<%= num == 1  ? 'disabled' : 'waves-effect' %>"><a class="<%= num == 1 ? 'disabled' : '' %> href="<%= parseInt(num) - 1 %>"><i class="material-icons">chevron_left</i></a></li>
+        <li class="<%= num == 1 ? 'active' : 'waves-effect' %>"><a href="1">1</a></li>
+        <li class="<%= num == 2 ? 'active' : 'waves-effect' %>"><a href="2">2</a></li>
+        <li class="<%= num == 3 ? 'active' : 'waves-effect' %>"><a href="3">3</a></li>
+        <li class="<%= num == 3 ? 'disabled' : '' %>"><a class="<%= num == 3 ? 'disabled' : '' %> href="<%= parseInt(num) + 1 %>"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+</body>
+<%- include('header') -%>
+</html>
