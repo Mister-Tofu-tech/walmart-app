@@ -29,16 +29,16 @@ app.get("/notFound", (req, res) => {
 });
 
 app.get("/page/:num", (req, res) => {
-    var page_number = req.params.num;
-    res.render("index", { data: json_data, num: page_number });
+    var page_number = req.params.num;       
+    res.render("index", { data: json_data, num: parseInt(page_number) });
 });
     
 app.get("/issue/:num", (req, res) => {
-    var page_number = req.params.num;
-    if (!json_data[page_number])
+    var index = req.params.num;
+    if (!json_data[index])
         res.redirect("/notFound");
     else
-        res.render("issue", { issue: json_data[page_number], num: page_number});
+        res.render("issue", { issue: json_data[index], num: parseInt(index)});
 });
 
 app.get("*", (req, res) => {

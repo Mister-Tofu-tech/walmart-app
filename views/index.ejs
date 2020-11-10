@@ -6,7 +6,7 @@
     <div class="container" style="width: 100%;">
 
         <!-- Display up to 10 cards -->
-        <% for(var i = (num - 1) * 10; i < num * 10 && i < data.length; i++) { %>
+        <% for(var i = (num - 1) * 10; i < num * 10 && i < data.length && i >= 0; i++) { %>
                 <div class="row align">
                     <div class="col offset-m3 offset-s2 m6 s8 ">
                         <div class="card hoverable">
@@ -29,7 +29,7 @@
             <ul class="pagination">
                 <li class="<%= num <= 1  ? 'disabled' : 'waves-effect' %>">
                     <a class="<%= num <= 1 ? 'disable' : '' %>"
-                        href="/page/<%= parseInt(num) - 1 %>">
+                        href="/page/<%= num - 1 %>">
                         <i class="material-icons">chevron_left</i>
                     </a>
                 </li>
@@ -37,7 +37,7 @@
                     <li class="<%= j == num ? 'active' : 'waves-effect' %>"><a href="/page/<%= j %>"><%= j %></a></li>
                 <% } %>
                 <li class="<%= num >= Math.ceil(data.length / 10) ? 'disabled' : 'waves-effect' %>">
-                    <a class="<%= num >= Math.ceil(data.length / 10) ? 'disable' : '' %>" href="/page/<%= parseInt(num) + 1 %>">
+                    <a class="<%= num >= Math.ceil(data.length / 10) ? 'disable' : '' %>" href="/page/<%= num + 1 %>">
                         <i class="material-icons">chevron_right</i>
                     </a>
                 </li>
