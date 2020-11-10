@@ -3,6 +3,7 @@
     <%- include('header') -%>
     <body>
 
+        <!-- Display the details of each issue -->
         <div class="container">
             <h3 class="issue-title blue-grey-text text-darken-2"><%= issue.title  %></h3>
             <div class="user-wrapper">
@@ -31,10 +32,11 @@
             <div class="foot-wrapper">
                 <a class="issue_link valign-wrapper" target="_blank" href="<%= issue.html_url %>">Original Issue<i
                                     class="material-icons">open_in_new</i></a>
-                <a class="issue_link valign-wrapper" href="/<%= 1 + Math.floor(num / 10)%>">Back to issues</a>
+                <a class="issue_link valign-wrapper" href="/page/<%= Math.ceil(num / 10)%>">Back to issues</a>
             </div>
         </div>
     
     </body>
+
     <%- include('script') -%>
 </html>

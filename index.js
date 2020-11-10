@@ -24,15 +24,25 @@ app.get("/", (req, res) => {
     res.render("index", { data: json_data, num: 1 });
 });
 
+app.get("/notFound", (req, res) => {
+    res.render("404");
+});
 
-app.get("/:num", (req, res) => {
+app.get("/page/:num", (req, res) => {
     var page_number = req.params.num;
     res.render("index", { data: json_data, num: page_number });
 });
     
 app.get("/issue/:num", (req, res) => {
     var page_number = req.params.num;
-    res.render("issue", { issue: json_data[page_number], num: page_number});
+    if (!json_data[page_number])
+        res.redirect("/notFound");
+    else
+        res.render("issue", { issue: json_data[page_number], num: page_number});
+});
+
+app.get("*", (req, res) => {
+    res.redirect("/notFound");
 });
 
 var port = process.env.PORT || 3000

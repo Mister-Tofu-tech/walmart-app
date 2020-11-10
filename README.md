@@ -1,22 +1,23 @@
 # Walmart issue browser
 
-## To Run
+Issue Browser gets issues from the github API in the form: `https://api.github.com/repos/${org}/${repo}/issues`
 
-```
-node index.js
-```
+## Prerequisite
 
-If `node` is not installed in your current machine. Go to https://nodejs.org/en/ to install globally. <br><br> After starting the server go to `localhost:3000`.
-This will take you to the home page where the first 10 entry will be shown. Each page contains at most 10 entries using pagination.
+- [Node.js](https://nodejs.org/en/download/)
 
-```
-/:page_number
-```
-
-Each entry is also a link to the detail of a github issue.
-
-```
-/issue/:id
-```
+## Live Site
 
 Live App @ https://issue-browser-app.herokuapp.com/
+
+## To run on local machine
+
+1. From the root of the repo, run `npm start`. This will run `npm install` to install necessary dependencies and `node index.js` to start the local server.
+2. If `npm install` has been run before, simply run `node index.js` to start the server.
+3. After starting the server, https://localhost:3000 will link to the application. Pages can be viewed at route `/page/{page_number}`. Issues can be viewed at rout `/issue/{num}`.
+
+## Tech Stack
+
+1.  `nodejs` and `express` for backend services.
+2.  `ejs` for html templating.
+3.  `Materialize` for frontend styling.
