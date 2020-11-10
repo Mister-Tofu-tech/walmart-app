@@ -35,4 +35,5 @@ app.get("/issue/:num", (req, res) => {
     res.render("issue", { issue: json_data[page_number], num: page_number});
 });
 
-app.listen( process.env.PORT || 3000, () => {});
+var port = process.env.PORT || 3000
+app.listen(port, () => { console.log(`Running at port ${port}`); });
