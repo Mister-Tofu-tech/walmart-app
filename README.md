@@ -1,4 +1,4 @@
-# Walmart issue browser
+# Walmart Issue Browser
 
 Issue Browser gets issues from the github API in the form: `https://api.github.com/repos/${org}/${repo}/issues`
 
