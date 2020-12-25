@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header') -%>
+<body>
+    <h2 class="center-align blue-grey-text text-darken-2">Issue Browser</h2>
+    <div class="container" style="width: 100%;">
+        <form action="/page" method="post">
+            <div class="row">
+                <div class="input-field col offset-m3 offset-s2 s6">
+                    <label class="active" for="org">Organization</label>
+                    <input id="org" name="org" type="text" class="validate">
+                </div>
+                <div class="input-field col offset-m3 offset-s2 s6">
+                    <label class="active" for="repo">Repo</label>
+                    <input id="repo" name="repo" type="text" class="validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    <button class="btn waves-effect waves-light teal lighten-1" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<%- include('script') -%>
+</html>
