@@ -25,7 +25,7 @@ app.set("view engine", "ejs");
 
 // Each route for the browser
 app.get("/", (req, res) => {
-    res.render("index", { data: json_data, num: 1 });
+    res.render("input");
 });
 
 app.get("/input", (req, res) => {
@@ -42,17 +42,15 @@ app.get("/page/:num", (req, res) => {
 });
 
 app.post("/page", (req, res) =>{
-    console.log(req.body);
     org = req.body.org;
     repo = req.body.repo;
     fetch(`https://api.github.com/repos/${org}/${repo}/issues`)
     .then(response => response.json())
     .then(data => {
         json_data = data;
+        res.redirect('/page/1');
     })
     .catch(e => console.error(e));
-
-    res.redirect('/');
 })
     
 app.get("/issue/:num", (req, res) => {
